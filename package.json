@@ -1,0 +1,23 @@
+{
+  "name": "drisle-middleware",
+  "version": "1.0.0",
+  "description": "Middleware between drisle backend and clients.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/prashanth1509/drisle-middleware"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/prashanth1509/drisle-middleware/issues"
+  },
+  "homepage": "https://github.com/prashanth1509/drisle-middleware",
+  "dependencies": {
+    "express": "^4.12.2",
+    "node-fetch": "^1.5.3"
+  }
+}
