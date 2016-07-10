@@ -33,7 +33,7 @@ app.use(function (req, res, next) {
 });
 
 app.get("/received/all", function (req, res) {
-    fetch(backend_api_config.host + '/recieved/' + USER_ID, {}).then(function (response) {
+    fetch(backend_api_config.host + '/received/' + USER_ID, {}).then(function (response) {
         return response.json();
     }).then(function (data) {
         res.json(data);
@@ -42,9 +42,20 @@ app.get("/received/all", function (req, res) {
     });
 });
 
-app.post("/test", function (req, res) {
-    switch (req.body.payment_instrument) {
-    }
+app.post("/send_message", function (req, res) {
+    var to = req.body.to, link = req.body.link;
+    fetch(backend_api_config.host + '/send', {method: 'POST', body: JSON.stringify({url: link, frm_id: USER_ID, to_id: to})} ).then(
+        function (okay) {
+            res.json(okay);
+        },
+        function (fail) {
+            console.log(fail);
+        }
+    ).catch(function (error) {
+        console.log(error);
+        res.json(error);
+    })
+
 });
 
 app.listen(port) && console.log('API MOCK server is running...');
